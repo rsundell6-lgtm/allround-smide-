@@ -3,34 +3,70 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- TA BORT NÄSTA RAD NÄR SIDAN SKA GÅ LIVE (annars hittas den inte på Google) -->
 <meta name="robots" content="noindex, nofollow">
 <title>Allround Smide AB – Maskinbyggnad och smide i Hässleholm</title>
 <meta name="description" content="Allround Smide AB i Hässleholm: maskinbyggnad, järnkonstruktioner, hydraulik och service sedan 1966. Vi förverkligar din idé.">
+<meta name="theme-color" content="#0f1a2b">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Allround Smide AB – Maskinbyggnad och smide i Hässleholm">
+<meta property="og:description" content="Konstruktion, tillverkning och montage med hydraulik, pneumatik och elstyrning. Sedan 1966.">
+<meta property="og:locale" content="sv_SE">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230f1a2b'/%3E%3Cpath d='M14 46V18h10l8 16 8-16h10v28h-8V32l-6 12h-8l-6-12v14z' fill='%23f2b705'/%3E%3C/svg%3E">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Allround Smide AB",
+  "foundingDate": "1966",
+  "telephone": "+46451-18517",
+  "email": "carl@allround-smide.se",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Sandåkra 6085",
+    "postalCode": "281 92",
+    "addressLocality": "Hässleholm",
+    "addressCountry": "SE"
+  },
+  "description": "Maskinbyggnad, järnkonstruktioner, hydraulik, pneumatik, elstyrning, montage och service."
+}
+</script>
+
 <style>
   :root{
     --bg:#0f1a2b; --bg2:#15233a; --panel:#1b2c47; --line:#2a3f60;
     --text:#e8edf5; --muted:#9fb0c8; --accent:#f2b705; --accent-d:#c99700;
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
+  html{scroll-behavior:smooth;scroll-padding-top:76px}
   body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.65}
   a{color:inherit}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px}
   .wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+  .skip{position:absolute;left:-999px;top:8px;background:var(--accent);color:#1a1400;padding:8px 14px;border-radius:6px;z-index:100}
+  .skip:focus{left:8px}
 
-  header{position:sticky;top:0;z-index:10;background:rgba(15,26,43,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-  .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
-  .logo{font-weight:800;letter-spacing:.04em;text-transform:uppercase;font-size:1.05rem;text-decoration:none}
+  /* Förslagsbanner – ta bort <div class="proposal"> när sidan går live */
+  .proposal{background:var(--accent);color:#1a1400;text-align:center;padding:8px 12px;font-size:.85rem;font-weight:600}
+
+  header{position:sticky;top:0;z-index:10;background:rgba(15,26,43,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+  .logo{font-weight:800;letter-spacing:.04em;text-transform:uppercase;font-size:1.05rem;text-decoration:none;white-space:nowrap}
   .logo span{color:var(--accent)}
   nav ul{display:flex;gap:22px;list-style:none}
   nav a{text-decoration:none;color:var(--muted);font-size:.95rem}
   nav a:hover{color:var(--text)}
-  .btn{display:inline-block;background:var(--accent);color:#1a1400;font-weight:700;padding:12px 22px;border-radius:6px;text-decoration:none;border:0;cursor:pointer;font-size:1rem}
-  .btn:hover{background:var(--accent-d)}
+  .menu-btn{display:none;background:none;border:1px solid var(--line);color:var(--text);border-radius:6px;padding:8px 12px;font-size:1rem;cursor:pointer}
+
+  .btn{display:inline-block;background:var(--accent);color:#1a1400;font-weight:700;padding:12px 22px;border-radius:6px;text-decoration:none;border:0;cursor:pointer;font-size:1rem;transition:background .15s,transform .15s}
+  .btn:hover{background:var(--accent-d);transform:translateY(-1px)}
   .btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
   .btn.ghost:hover{border-color:var(--accent);color:var(--accent)}
+  .btn.sm{padding:9px 16px;font-size:.92rem}
 
   .hero{padding:96px 0 80px;background:
-    linear-gradient(135deg,rgba(242,183,5,.08),transparent 40%),
+    linear-gradient(135deg,rgba(242,183,5,.09),transparent 45%),
     repeating-linear-gradient(45deg,transparent 0 22px,rgba(255,255,255,.015) 22px 44px),var(--bg)}
   .eyebrow{color:var(--accent);font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:.8rem}
   h1{font-size:clamp(2.2rem,6vw,3.8rem);line-height:1.1;margin:14px 0 18px;max-width:16ch}
@@ -48,57 +84,82 @@
   .alt{background:var(--bg2)}
 
   .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
-  .card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:24px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:24px;transition:border-color .2s,transform .2s}
+  .card:hover{border-color:var(--accent);transform:translateY(-2px)}
   .card h3{margin-bottom:8px;font-size:1.1rem}
   .card p{color:var(--muted);font-size:.97rem}
   .icon{width:42px;height:42px;border-radius:8px;background:rgba(242,183,5,.12);color:var(--accent);display:grid;place-items:center;font-weight:800;margin-bottom:14px}
 
   .split{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
-  .ph{aspect-ratio:4/3;border-radius:10px;border:1px dashed var(--line);display:grid;place-items:center;text-align:center;color:var(--muted);font-size:.85rem;padding:16px;
-      background:repeating-linear-gradient(45deg,var(--panel) 0 14px,#1e3050 14px 28px)}
   .ticks{list-style:none;margin-top:14px}
   .ticks li{padding:6px 0 6px 28px;position:relative;color:var(--muted)}
   .ticks li::before{content:"";position:absolute;left:0;top:14px;width:14px;height:3px;background:var(--accent)}
 
-  .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+  /* Bildplatser. Byt ut innehållet mot: <img src="bilder/filnamn.jpg" alt="Beskrivning"> */
+  .ph{aspect-ratio:4/3;border-radius:10px;border:1px dashed var(--line);display:grid;place-items:center;text-align:center;color:var(--muted);font-size:.85rem;padding:16px;
+      background:repeating-linear-gradient(45deg,var(--panel) 0 14px,#1e3050 14px 28px)}
+  .ph:has(img){border:0;padding:0;background:none;overflow:hidden}
+  .ph img{width:100%;height:100%;object-fit:cover;display:block}
+  .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
 
   .contact{display:grid;grid-template-columns:1fr 1fr;gap:40px}
-  .info p{margin-bottom:12px;color:var(--muted)}
+  .info p{margin-bottom:14px;color:var(--muted)}
   .info b{color:var(--text)}
+  .quick{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
   form{display:grid;gap:12px}
+  label{font-size:.88rem;color:var(--muted);display:grid;gap:4px}
   input,textarea{width:100%;padding:12px 14px;border-radius:6px;border:1px solid var(--line);background:var(--bg);color:var(--text);font:inherit}
-  input:focus,textarea:focus{outline:2px solid var(--accent);border-color:transparent}
   textarea{min-height:130px;resize:vertical}
+  .hp{position:absolute;left:-9999px;height:0;overflow:hidden}
+  #status{min-height:1.4em;font-size:.95rem}
+  #status.ok{color:#7ddc8a}
+  #status.err{color:#ff8a8a}
 
   footer{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-size:.9rem}
   footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s,transform .6s}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .reveal{opacity:1;transform:none;transition:none}
+    .btn,.card{transition:none}
+  }
+
   @media(max-width:820px){
-    nav ul{display:none}
+    .menu-btn{display:block}
+    nav{position:absolute;left:0;right:0;top:64px;background:var(--bg);border-bottom:1px solid var(--line);display:none}
+    nav.open{display:block}
+    nav ul{flex-direction:column;gap:0;padding:8px 20px 16px}
+    nav li a{display:block;padding:12px 0;font-size:1.05rem}
+    .nav .btn.sm{display:none}
     .stats{grid-template-columns:repeat(2,1fr)}
     .split,.contact{grid-template-columns:1fr}
+    .hero{padding:64px 0 56px}
+    section{padding:56px 0}
   }
 </style>
 </head>
 <body>
+<a class="skip" href="#tjanster">Hoppa till innehåll</a>
 
-<div style="background:#f2b705;color:#1a1400;text-align:center;padding:8px 12px;font-size:.85rem;font-weight:600">
-  Designförslag – detta är inte företagets officiella hemsida.
-</div>
+<div class="proposal">Designförslag – detta är inte företagets officiella hemsida.</div>
 
 <header>
   <div class="wrap nav">
     <a class="logo" href="#top">Allround <span>Smide</span> AB</a>
-    <nav>
+    <nav id="nav" aria-label="Huvudmeny">
       <ul>
         <li><a href="#tjanster">Tjänster</a></li>
         <li><a href="#produkter">Egna produkter</a></li>
+        <li><a href="#projekt">Projekt</a></li>
         <li><a href="#maskinpark">Maskinpark</a></li>
         <li><a href="#om">Om oss</a></li>
         <li><a href="#kontakt">Kontakt</a></li>
       </ul>
     </nav>
-    <a class="btn" href="#kontakt">Begär offert</a>
+    <a class="btn sm" href="#kontakt">Begär offert</a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="nav">Meny</button>
   </div>
 </header>
 
@@ -110,7 +171,7 @@
       <p class="lead">Från konstruktion och tillverkning till slutmontage med hydraulik, pneumatik och elstyrning. Allround Smide AB i Hässleholm tar totalansvar för projektet, med CE-märkning som en naturlig del av jobbet.</p>
       <div class="cta">
         <a class="btn" href="#kontakt">Berätta om ditt projekt</a>
-        <a class="btn ghost" href="#tjanster">Se vad vi gör</a>
+        <a class="btn ghost" href="tel:+4645118517">Ring 0451-185 17</a>
       </div>
     </div>
   </div>
@@ -123,7 +184,7 @@
   </div>
 
   <section id="tjanster">
-    <div class="wrap">
+    <div class="wrap reveal">
       <div class="eyebrow">Tjänster</div>
       <h2>Allt från skiss till färdig maskin</h2>
       <p class="sub">Våra uppdrag är ofta totalentreprenader. Vi åtar oss också enskilda delar, antingen i egen regi eller under din ledning.</p>
@@ -139,7 +200,7 @@
   </section>
 
   <section id="produkter" class="alt">
-    <div class="wrap split">
+    <div class="wrap split reveal">
       <div>
         <div class="eyebrow">Egna produkter</div>
         <h2>Lösningar vi tagit fram själva</h2>
@@ -156,10 +217,10 @@
   </section>
 
   <section id="projekt">
-    <div class="wrap">
+    <div class="wrap reveal">
       <div class="eyebrow">Referensprojekt</div>
       <h2>Exempel på vårt arbete</h2>
-      <p class="sub">Här visas bilder från tidigare uppdrag. Byt ut platshållarna mot era egna foton.</p>
+      <p class="sub">Ett urval av tidigare uppdrag.</p>
       <div class="gallery">
         <div class="ph">Torvmaskin</div>
         <div class="ph">Lyftok för räls</div>
@@ -172,7 +233,7 @@
   </section>
 
   <section id="maskinpark" class="alt">
-    <div class="wrap split">
+    <div class="wrap split reveal">
       <div class="ph">Bild: verkstaden<br>(byt ut mot foto)</div>
       <div>
         <div class="eyebrow">Maskinpark</div>
@@ -188,7 +249,7 @@
   </section>
 
   <section id="om">
-    <div class="wrap split">
+    <div class="wrap split reveal">
       <div>
         <div class="eyebrow">Om oss</div>
         <h2>Ett familjeföretag med lång erfarenhet</h2>
@@ -200,23 +261,28 @@
   </section>
 
   <section id="kontakt" class="alt">
-    <div class="wrap">
+    <div class="wrap reveal">
       <div class="eyebrow">Kontakt</div>
       <h2>Vi löser gärna era problem</h2>
       <p class="sub">Beskriv kort vad du behöver så återkommer vi.</p>
       <div class="contact">
         <div class="info">
           <p><b>Allround-Smide AB</b><br>Sandåkra 6085<br>281 92 Hässleholm</p>
-          <p><b>Telefon:</b> <a href="tel:+4645118517">0451-185 17</a><br>
-             <b>E-post:</b> <a href="mailto:carl@allround-smide.se">carl@allround-smide.se</a></p>
+          <div class="quick">
+            <a class="btn sm" href="tel:+4645118517">Ring 0451-185 17</a>
+            <a class="btn sm ghost" href="mailto:carl@allround-smide.se">Mejla Carl</a>
+          </div>
           <p><b>Hitta hit:</b> Cirka 11 km söder om Hässleholm längs riksväg 23. Det finns goda möjligheter att komma fram med 24 m lastbilsekipage.</p>
         </div>
-        <form action="mailto:carl@allround-smide.se" method="post" enctype="text/plain">
-          <input name="namn" placeholder="Namn" required>
-          <input name="epost" type="email" placeholder="E-post" required>
-          <input name="telefon" placeholder="Telefon (valfritt)">
-          <textarea name="meddelande" placeholder="Vad behöver du hjälp med?" required></textarea>
+
+        <form id="contactForm" action="mailto:carl@allround-smide.se" method="post" enctype="text/plain">
+          <label>Namn<input name="namn" autocomplete="name" required></label>
+          <label>E-post<input name="epost" type="email" autocomplete="email" required></label>
+          <label>Telefon (valfritt)<input name="telefon" type="tel" autocomplete="tel"></label>
+          <label>Vad behöver du hjälp med?<textarea name="meddelande" required></textarea></label>
+          <input class="hp" type="text" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true">
           <button class="btn" type="submit">Skicka förfrågan</button>
+          <div id="status" role="status" aria-live="polite"></div>
         </form>
       </div>
     </div>
@@ -230,5 +296,52 @@
   </div>
 </footer>
 
+<script>
+  // Mobilmeny
+  const btn = document.getElementById('menuBtn');
+  const nav = document.getElementById('nav');
+  btn.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+  });
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    nav.classList.remove('open'); btn.setAttribute('aria-expanded', false);
+  }));
+
+  // Fade-in vid scroll
+  const io = 'IntersectionObserver' in window ? new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold: .08}) : null;
+  document.querySelectorAll('.reveal').forEach(el => io ? io.observe(el) : el.classList.add('in'));
+
+  // Kontaktformulär via Web3Forms.
+  // 1) Gå till web3forms.com, ange Carls mejl, och klistra in nyckeln som han får här:
+  const ACCESS_KEY = 'LÄGG_IN_NYCKEL_HÄR';
+
+  const form = document.getElementById('contactForm');
+  const status = document.getElementById('status');
+  form.addEventListener('submit', async (e) => {
+    if (ACCESS_KEY === 'LÄGG_IN_NYCKEL_HÄR') return; // faller tillbaka på mejlprogrammet (demo)
+    e.preventDefault();
+    status.className = ''; status.textContent = 'Skickar…';
+    const data = Object.fromEntries(new FormData(form));
+    data.access_key = ACCESS_KEY;
+    data.subject = 'Ny förfrågan från hemsidan';
+    data.from_name = 'Allround Smide – hemsidan';
+    try {
+      const r = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+        body: JSON.stringify(data)
+      });
+      const j = await r.json();
+      if (j.success) { status.className = 'ok'; status.textContent = 'Tack! Vi hör av oss så snart vi kan.'; form.reset(); }
+      else throw new Error();
+    } catch (_) {
+      status.className = 'err';
+      status.textContent = 'Något gick fel. Ring oss på 0451-185 17 eller mejla carl@allround-smide.se.';
+    }
+  });
+</script>
 </body>
 </html>
