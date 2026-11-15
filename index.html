@@ -20,7 +20,7 @@
   "@type": "LocalBusiness",
   "name": "Allround Smide AB",
   "foundingDate": "1966",
-  "telephone": "+46451-18517",
+  "telephone": "+4645118517",
   "email": "carl@allround-smide.se",
   "address": {
     "@type": "PostalAddress",
@@ -139,6 +139,7 @@
     section{padding:56px 0}
   }
 </style>
+<noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
 </head>
 <body>
 <a class="skip" href="#tjanster">Hoppa till innehåll</a>
@@ -267,7 +268,7 @@
       <p class="sub">Beskriv kort vad du behöver så återkommer vi.</p>
       <div class="contact">
         <div class="info">
-          <p><b>Allround-Smide AB</b><br>Sandåkra 6085<br>281 92 Hässleholm</p>
+          <p><b>Allround Smide AB</b><br>Sandåkra 6085<br>281 92 Hässleholm</p>
           <div class="quick">
             <a class="btn sm" href="tel:+4645118517">Ring 0451-185 17</a>
             <a class="btn sm ghost" href="mailto:carl@allround-smide.se">Mejla Carl</a>
@@ -321,8 +322,17 @@
   const form = document.getElementById('contactForm');
   const status = document.getElementById('status');
   form.addEventListener('submit', async (e) => {
-    if (ACCESS_KEY === 'LÄGG_IN_NYCKEL_HÄR') return; // faller tillbaka på mejlprogrammet (demo)
     e.preventDefault();
+    if (ACCESS_KEY === 'LÄGG_IN_NYCKEL_HÄR') {
+      // Demo-läge: öppna mejlprogrammet med ett färdigt mejl (pålitligare än enctype="text/plain").
+      const f = Object.fromEntries(new FormData(form));
+      if (f.botcheck) return;
+      const body = 'Namn: ' + f.namn + '\nE-post: ' + f.epost + '\nTelefon: ' + (f.telefon || '-') + '\n\n' + f.meddelande;
+      window.location.href = 'mailto:carl@allround-smide.se?subject=' + encodeURIComponent('Ny förfrågan från hemsidan') + '&body=' + encodeURIComponent(body);
+      status.className = '';
+      status.textContent = 'Öppnar ditt mejlprogram. Fungerar inget? Mejla carl@allround-smide.se eller ring 0451-185 17.';
+      return;
+    }
     status.className = ''; status.textContent = 'Skickar…';
     const data = Object.fromEntries(new FormData(form));
     data.access_key = ACCESS_KEY;
